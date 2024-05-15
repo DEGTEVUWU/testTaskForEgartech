@@ -10,6 +10,11 @@
 <body>
 <div class="container">
     <h1>Edit Document</h1>
+
+    <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
     <form th:action="@{/api/documents/edit/{id}(id=${document.id})}" method="post">
         <fieldset>
             <label for="title">Title</label>

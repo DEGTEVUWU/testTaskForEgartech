@@ -16,5 +16,4 @@ public abstract class DocumentMapper {
     public abstract Document toDocument(CreateDocumentDTO dto);
     public abstract DocumentDTO toDTO(Document document);
     public abstract void update(UpdateDocumentDTO dto, @MappingTarget Document document);
-    public abstract UpdateDocumentDTO updateDTO(DocumentDTO dto);
 }

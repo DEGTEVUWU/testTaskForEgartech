@@ -10,6 +10,11 @@
 <body>
 <div class="container">
     <h1>Create Document</h1>
+
+    <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
     <form action="/api/documents/create" method="post">
         <fieldset>
             <label for="title">Title</label>
