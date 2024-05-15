@@ -37,7 +37,7 @@ public class DocumentController {
     public String createForm(Model model) {
         model.addAttribute("document", new CreateDocumentDTO());
 
-        return "create-document";
+        return "document-form";
     }
 
     @PostMapping("/create")
@@ -48,7 +48,7 @@ public class DocumentController {
             return "redirect:/api/documents";
         } catch (ResourceNotValidException e) {
             model.addAttribute("errorMessage", e.getMessage());
-            return "create-document";
+            return "document-form";
         }
     }
 
@@ -56,7 +56,7 @@ public class DocumentController {
     public String editForm(@PathVariable Long id, Model model) throws Exception {
         DocumentDTO documentDTO = documentService.findById(id);
         model.addAttribute("document", documentDTO);
-        return "edit-document";
+        return "document-form";
     }
 
     @PostMapping("/edit/{id}")
@@ -71,7 +71,7 @@ public class DocumentController {
             return "redirect:/api/documents";
         } catch (ResourceNotValidException e) {
             model.addAttribute("errorMessage", e.getMessage());
-            return "edit-document";
+            return "document-form";
         }
     }
 
