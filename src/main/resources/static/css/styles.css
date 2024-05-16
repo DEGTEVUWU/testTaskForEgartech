@@ -1,0 +1,38 @@
+.form-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.form-container label {
+    margin-right: 5px;
+}
+
+/*.form-container input[type="text"] {*/
+/*    width: 12%;*/
+/*    min-width: 100px;*/
+/*}*/
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="number"] {
+    width: 12%;
+    min-width: 100px;
+}
+
+.form-container .button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-container .button {
+    width: 12%;
+    height: 40px; /* Высота кнопки */
+    line-height: 40px; /* Межстрочный интервал текста равен высоте кнопки */
+    padding: 0 10px; /* Паддинг по горизонтали, вертикальный паддинг не нужен, так как высота и line-height центрируют текст */
+    cursor: pointer;
+    text-align: center; /* Горизонтальное выравнивание текста */
+    /* Добавьте нужные стили для внешнего вида кнопки, если необходимо */
+}

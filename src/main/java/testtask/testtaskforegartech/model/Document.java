@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,6 +27,9 @@ public class Document implements BaseEntity {
     private String title;
 
     @NotBlank
+    private Long number;
+
+    @NotBlank
     private String author;
 
     @NotBlank
@@ -35,5 +39,5 @@ public class Document implements BaseEntity {
     private String type;
 
     @CreatedDate
-    private LocalDateTime creationDate;
+    private LocalDate creationDate;
 }

@@ -6,16 +6,38 @@
     <title>Documents</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <div class="container">
     <h1>Documents</h1>
+
+
+    <form action="/" th:action="@{/api/documents}" th:object="${params}" method="get">
+        <div class="form-container">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="titleCont" th:value="${params.titleCont}">
+
+            <label for="number">Number:</label>
+            <input type="text" id="number" name="number" th:value="${params.number}">
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="typeCont" th:value="${params.typeCont}">
+
+            <label for="creationDate">Creation:</label>
+            <input type="date" id="creationDate" name="creationDate" th:value="${params.creationDate}">
+
+            <button class="button" type="submit">Search</button>
+        </div>
+    </form>
+
     <a href="/api/documents/create" class="button">Add Document</a>
     <table>
         <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
+            <th>Number</th>
             <th>Author</th>
             <th>Content</th>
             <th>Type</th>
@@ -27,6 +49,7 @@
         <tr th:each="document : ${documents}">
             <td th:text="${document.id}"></td>
             <td th:text="${document.title}"></td>
+            <td th:text="${document.number}"></td>
             <td th:text="${document.author}"></td>
             <td th:text="${document.content}"></td>
             <td th:text="${document.type}"></td>

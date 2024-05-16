@@ -10,6 +10,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @NoArgsConstructor
 public class UpdateDocumentDTO {
     private String title;
+    private Long number;
     private String author;
     private String content;
     private String type;

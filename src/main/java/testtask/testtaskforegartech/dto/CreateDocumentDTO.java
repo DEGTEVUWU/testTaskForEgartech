@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class CreateDocumentDTO {
     private String title;
+    private Long number;
     private String author;
     private String content;
     private String type;

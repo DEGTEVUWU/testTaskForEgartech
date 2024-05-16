@@ -2,30 +2,38 @@ package testtask.testtaskforegartech.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import testtask.testtaskforegartech.dto.CreateDocumentDTO;
 import testtask.testtaskforegartech.dto.DocumentDTO;
+import testtask.testtaskforegartech.dto.DocumentParamsDTO;
 import testtask.testtaskforegartech.dto.UpdateDocumentDTO;
 import testtask.testtaskforegartech.exception.ResourceNotValidException;
 import testtask.testtaskforegartech.mapper.DocumentMapper;
 import testtask.testtaskforegartech.model.Document;
 import testtask.testtaskforegartech.repository.DocumentRepository;
+import testtask.testtaskforegartech.specification.DocumentSpecification;
+
 import java.util.List;
 import java.util.Objects;
 
 @Service
 @AllArgsConstructor
 public class DocumentService {
-
     private final DocumentRepository documentRepository;
     private final DocumentMapper documentMapper;
+    private final DocumentSpecification documentSpecification;
 
-    public List<DocumentDTO> getAll() {
-        List<Document> documents = documentRepository.findAll();
-        List<DocumentDTO> result = documents.stream()
+    public List<DocumentDTO> getAll(DocumentParamsDTO params) {
+        Specification<Document> spec = documentSpecification.build(params);
+        List<Document> documents = documentRepository.findAll(spec);
+        List<DocumentDTO> resultList = documents.stream()
                 .map(documentMapper::toDTO)
                 .toList();
-        return result;
+        return resultList;
     }
 
     public DocumentDTO create(CreateDocumentDTO documentData) throws ResourceNotValidException {
