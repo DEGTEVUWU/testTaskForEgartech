@@ -33,7 +33,7 @@
 ##### В терминале: #####
 ```
 git clone git@github.com:DEGTEVUWU/testTaskForEgartech.git
-cd testTaskForEgartech.git
+cd testTaskForEgartech
 make spring
 ```
 ##### В браузере: #####
