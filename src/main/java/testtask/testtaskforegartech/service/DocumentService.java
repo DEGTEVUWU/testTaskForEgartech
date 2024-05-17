@@ -47,6 +47,7 @@ public class DocumentService {
         DocumentDTO documentDTO = documentMapper.toDTO(document);
         return documentDTO;
     }
+
     public DocumentDTO findById(Long id) throws ResourceNotValidException {
         var document = documentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotValidException("Document with this id " + id + " not found!"));

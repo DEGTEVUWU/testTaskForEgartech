@@ -20,8 +20,6 @@ import testtask.testtaskforegartech.repository.DocumentRepository;
 import testtask.testtaskforegartech.service.DocumentService;
 import testtask.testtaskforegartech.specification.DocumentSpecification;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 //@RestController
@@ -46,14 +44,7 @@ public class DocumentController {
 
     @GetMapping(path = "")
     public String index(Model model, DocumentParamsDTO params) {
-
-        System.out.println(params);
-
         List<DocumentDTO> documents = documentService.getAll(params);
-
-        System.out.println(documents.stream().toList());
-        System.out.println("-----------------------------------");
-
         model.addAttribute("documents", documents);
         model.addAttribute("params", params);
         return "index";
@@ -85,6 +76,14 @@ public class DocumentController {
         model.addAttribute("document", documentDTO);
         return "document-form";
     }
+
+    @GetMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<DocumentDTO> show(@PathVariable Long id) {
+        DocumentDTO document = documentService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(document);
+    }
+
 
     @PostMapping("/edit/{id}")
     public String update(
