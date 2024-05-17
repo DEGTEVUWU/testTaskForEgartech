@@ -1,12 +1,8 @@
 package testtask.testtaskforegartech.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import testtask.testtaskforegartech.dto.CreateDocumentDTO;
 import testtask.testtaskforegartech.dto.DocumentDTO;
 import testtask.testtaskforegartech.dto.DocumentParamsDTO;
@@ -18,7 +14,6 @@ import testtask.testtaskforegartech.repository.DocumentRepository;
 import testtask.testtaskforegartech.specification.DocumentSpecification;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor

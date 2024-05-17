@@ -1,9 +1,6 @@
 package testtask.testtaskforegartech.controller.api;
 
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,33 +11,15 @@ import testtask.testtaskforegartech.dto.DocumentDTO;
 import testtask.testtaskforegartech.dto.DocumentParamsDTO;
 import testtask.testtaskforegartech.dto.UpdateDocumentDTO;
 import testtask.testtaskforegartech.exception.ResourceNotValidException;
-import testtask.testtaskforegartech.mapper.DocumentMapper;
-import testtask.testtaskforegartech.model.Document;
-import testtask.testtaskforegartech.repository.DocumentRepository;
 import testtask.testtaskforegartech.service.DocumentService;
-import testtask.testtaskforegartech.specification.DocumentSpecification;
 
 import java.util.List;
 
-//@RestController
 @RequestMapping(path = "/api/documents")
 @AllArgsConstructor
 @Controller
 public class DocumentController {
     private final DocumentService documentService;
-    private final DocumentSpecification documentSpecification;
-    private final DocumentRepository documentRepository;
-    private final DocumentMapper documentMapper;
-
-//    @GetMapping(path = "")
-//    @ResponseStatus(HttpStatus.OK)
-//    public Page<DocumentDTO> index(DocumentParamsDTO params, @RequestParam(defaultValue = "1") int page) {
-//        var spec = documentSpecification.build(params);
-//        Page<Document> documents = documentRepository.findAll(spec, PageRequest.of(page - 1, 10));
-//        Page<DocumentDTO> result = documents.map(documentMapper::toDTO);
-//
-//        return result;
-//    }
 
     @GetMapping(path = "")
     public String index(Model model, DocumentParamsDTO params) {

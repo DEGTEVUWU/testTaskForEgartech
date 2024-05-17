@@ -13,8 +13,4 @@ public class TestTaskForEgartechApplication {
 		SpringApplication.run(TestTaskForEgartechApplication.class, args);
 	}
 
-	@Bean
-	public static Faker getFaker() {
-		return new Faker();
-	}
 }
